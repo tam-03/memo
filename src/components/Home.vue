@@ -41,11 +41,11 @@
       },
       deleteMemo(id) {
         this.memos.splice(id, 1);
-        this.Memo();
+        this.setUpId();
       },
-      Memo() {
+      setUpId() {
         this.memos.forEach((memo, index) => {
-          console.log((memo.id = index));
+          memo.id = index
         });
         this.saveMemo();
       },
@@ -58,7 +58,7 @@
       if (localStorage.getItem("memo")) {
         try {
           this.memos = JSON.parse(localStorage.getItem("memo"));
-          this.Memo();
+          this.setUpId();
         } catch (err) {
           console.log(err.message);
         }
